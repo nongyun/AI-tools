@@ -7,10 +7,12 @@
     <meta name="description" content="Compare the best Large Language Models: DeepSeek R1, ChatGPT, Google Gemini, Claude, Qwen and more. Find your perfect AI chat assistant.">
     <link rel="canonical" href="https://9420166.xyz/ai-chat.html" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 💰 头部全局异步广告脚本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1624261597740761" crossorigin="anonymous"></script>
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
     <style>
-        /* === 完整样式，与原站完全相同，请从您原站复制 style 块至此 === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --bg-base: #0a1128; --sidebar-bg: rgba(16, 24, 48, 0.7); --card-bg: rgba(22, 38, 70, 0.5); --card-hover: rgba(30, 58, 106, 0.85); --text-main: #f8fafc; --text-muted: #cbd5e1; --border: rgba(255, 255, 255, 0.08); --accent: #3b82f6; --accent-glow: rgba(59, 130, 246, 0.45); }
         @keyframes smoothAurora { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
@@ -20,21 +22,25 @@
         .lang-bar { background: rgba(5, 12, 30, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0.7rem 2rem; display: flex; justify-content: flex-end; gap: 0.7rem; position: sticky; top: 0; z-index: 110; flex-wrap: wrap; }
         .lang-btn { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); color: #f1f5f9; padding: 0.35rem 1.1rem; font-size: 0.85rem; font-weight: 500; cursor: pointer; border-radius: 40px; transition: 0.2s; }
         .lang-btn:hover, .lang-btn.active { color: white; border-color: var(--accent); background: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
-        .ad-container { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; text-align: center; background: rgba(0,0,0,0.2); border-radius: 24px; backdrop-filter: blur(4px); }
-        .ad-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #facc15; margin-bottom: 0.6rem; display: inline-block; }
+        
+        /* 广告容器统一样式 */
+        .ad-container { max-width: 1200px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 24px; backdrop-filter: blur(4px); transition: 0.3s; }
+        .ad-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; }
+        
         .layout-wrapper { display: flex; max-width: 1260px; width: 100%; margin: 0.5rem auto 0; padding: 0 1.8rem; gap: 2rem; }
         aside { width: 250px; position: sticky; top: 88px; height: calc(100vh - 110px); background: var(--sidebar-bg); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 28px; padding: 1.8rem 1rem; display: flex; flex-direction: column; gap: 0.4rem; overflow-y: auto; }
         aside h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #94a3b8; margin-bottom: 1rem; padding-left: 0.6rem; }
         .nav-link { display: flex; align-items: center; gap: 0.9rem; padding: 0.75rem 1rem; color: var(--text-muted); text-decoration: none; border-radius: 14px; font-size: 0.95rem; font-weight: 500; transition: 0.2s; }
         .nav-link i { width: 24px; font-size: 1.2rem; text-align: center; }
         .nav-link:hover { background: rgba(59,130,246,0.2); color: white; padding-left: 1.3rem; }
-        .nav-link.active { background: rgba(59,130,246,0.3); color: white; border-left: 3px solid var(--accent); }
+        .nav-link.active { background: rgba(59,130,246,0.3); color: white; border-left: 3px solid var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
         main { flex: 1; padding-top: 0.5rem; }
         header h1 { font-size: 2.8rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #b9e0ff, #90aef0); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { color: #94a3b8; font-size: 1.1rem; margin-top: 0.4rem; margin-bottom: 1.5rem; }
         .category-title { font-size: 1.7rem; font-weight: 700; margin: 3rem 0 1.4rem 0; display: flex; align-items: center; gap: 0.6rem; scroll-margin-top: 140px; }
         .category-title::before { content: ''; width: 8px; height: 28px; background: var(--accent); border-radius: 8px; box-shadow: 0 0 12px var(--accent); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--card-bg); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.07); border-radius: 24px; padding: 1.6rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.3s; box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .card { position: relative; background: var(--card-bg); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.07); border-radius: 24px; padding: 1.6rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.3s; box-shadow: 0 12px 28px rgba(0,0,0,0.2); padding-bottom: 3rem; }
         .card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
         .card-header i { font-size: 1.6rem; color: #7aa9ff; filter: drop-shadow(0 0 4px #3b82f6); }
         .card h3 { font-size: 1.28rem; font-weight: 600; color: white; margin: 0; }
@@ -43,8 +49,8 @@
         .card:hover { background: var(--card-hover); transform: translateY(-5px); box-shadow: 0 20px 36px rgba(0,0,0,0.45), 0 0 18px rgba(59,130,246,0.4); }
         .card:hover::after { opacity: 1; transform: translateX(3px); }
         footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem 1rem; margin-top: 3rem; background: rgba(8, 14, 32, 0.6); backdrop-filter: blur(10px); color: #94a3b8; }
-        @media (max-width: 1024px) { .layout-wrapper { flex-direction: column; padding: 0 1rem; } aside { width: 100%; height: auto; position: sticky; top: 45px; flex-direction: row; overflow-x: auto; padding: 0.6rem 1rem; border-radius: 0; background: rgba(10, 17, 40, 0.9); } aside h2 { display: none; } .nav-link { display: inline-flex; padding: 0.4rem 0.9rem; } .category-title { font-size: 1.4rem; } header h1 { font-size: 2rem; } }
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 1.6rem; } .category-title { font-size: 1.3rem; } .card { padding: 1.2rem; } }
+        @media (max-width: 1024px) { .layout-wrapper { flex-direction: column; padding: 0 1rem; } aside { width: 100%; height: auto; position: sticky; top: 45px; flex-direction: row; overflow-x: auto; padding: 0.6rem 1rem; border-radius: 0; background: rgba(10, 17, 40, 0.9); z-index: 100; } aside h2 { display: none; } .nav-link { display: inline-flex; padding: 0.4rem 0.9rem; white-space: nowrap; } .category-title { font-size: 1.4rem; } header h1 { font-size: 2rem; } }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 1.6rem; } .category-title { font-size: 1.3rem; } .card { padding: 1.2rem; padding-bottom: 2.5rem; } }
     </style>
 </head>
 <body data-cat="1">
@@ -68,18 +74,44 @@
         <a href="https://tool.9420166.xyz" target="_blank" class="nav-link" id="nav-7"><i class="fas fa-toolbox"></i><span>工具箱</span></a>
     </aside>
     <main>
-        <div class="ad-container">
-            <div class="ad-label">📢 赞助商 · 推荐内容</div>
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1624261597740761" data-ad-slot="7441222926" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <!-- 💰 高单价广告位一：首屏防误触黄金横幅（外边距对齐 2.5rem，确保高价值单价竞价） -->
+        <div class="ad-container" style="margin: 0rem auto 2.5rem auto; padding: 12px; background: rgba(59, 130, 246, 0.03); border: 1px solid rgba(59, 130, 246, 0.12); border-radius: 16px;">
+            <div class="ad-label" style="color: #60a5fa; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600;"><i class="fa-solid fa-rectangle-ad"></i> SPONSOR · 赞助商推荐内容</div>
+            <ins class="adsbygoogle"
+                 style="display:block; min-height:90px; max-height:200px;"
+                 data-ad-client="ca-pub-1624261597740761"
+                 data-ad-slot="7441222926"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-        <header><h1 id="main-title">Global AI & Tech Tools Directory</h1><p id="main-desc">Hand-picked premium AI tools updated daily.</p></header>
+
+        <header>
+            <h1 id="main-title">Global AI & Tech Tools Directory</h1>
+            <p id="main-desc">Hand-picked premium AI tools updated daily.</p>
+        </header>
+        
         <h2 class="category-title" id="current-cat-title">🤖 Top LLMs & AI Chat</h2>
         <div class="grid">
             <a href="https://deepseek.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-brain"></i><h3>DeepSeek R1</h3></div><p class="lang-data" data-en="Revolutionary reasoning model with top performance." data-zh="深度逻辑推理大模型，开源性能巅峰。" data-es="Modelo de razonamiento revolucionario con máximo rendimiento." data-ja="革新的推論モデル、トップクラスの性能。"></p></a>
             <a href="https://gemini.google.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-gem"></i><h3>Google Gemini</h3></div><p class="lang-data" data-en="Google's flagship multimodal AI for native reasoning." data-zh="谷歌原生多模态旗舰，无缝文本/图像/视频。" data-es="IA multimodal insignia de Google." data-ja="グーグルのフラッグシップマルチモーダルAI。"></p></a>
             <a href="https://chatgpt.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-bolt"></i><h3>ChatGPT</h3></div><p class="lang-data" data-en="The gold standard AI assistant powered by GPT-4o and o1." data-zh="行业标杆级AI，GPT-4o与o1强强联合。" data-es="El asistente de IA estándar de oro." data-ja="GPT-4oとo1搭載、対話AI的ゴールドスタンダード。"></p></a>
             <a href="https://tongyi.aliyun.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-feather"></i><h3>Qwen (通义千问)</h3></div><p class="lang-data" data-en="Alibaba's premier LLM with superior multilingual skills." data-zh="阿里巴巴通义千问，领先多语言理解。" data-es="LLM premium de Alibaba, habilidades multilingües." data-ja="アリババのプレミアム大言語モデル。"></p></a>
+
+            <!-- 💰 高单价广告位二：网格第 5 位（原生矩形单元卡位） -->
+            <div class="card" style="grid-column: span 1; background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px; box-shadow: none;">
+                <div class="ad-label" style="color: #a855f7; font-size: 0.7rem; margin-bottom: 12px; letter-spacing: 0.05em;"><i class="fa-solid fa-circle-info"></i> ADS · 赞助商广告</div>
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%; height:100%; min-height:200px;"
+                         data-ad-client="ca-pub-1624261597740761"
+                         data-ad-slot="7441222926"
+                         data-ad-format="rectangle"
+                         data-full-width-responsive="false"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+
             <a href="https://www.doubao.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-circle-nodes"></i><h3>Doubao (豆包)</h3></div><p class="lang-data" data-en="ByteDance's massive AI chat assistant for smooth reply." data-zh="字节跳动国民级AI助手，语音自然流畅。" data-es="Asistente de chat de ByteDance, respuesta fluida." data-ja="バイトダンスの高速で滑らかなAIチャット。"></p></a>
             <a href="https://kimi.moonshot.cn" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-star"></i><h3>Kimi Chat</h3></div><p class="lang-data" data-en="Moonshot AI's assistant famous for long-context analysis." data-zh="月之暗面Kimi，百万字长文本神器。" data-es="Asistente famoso por análisis de contexto largo." data-ja="長文コンテキスト処理で有名なAI。"></p></a>
             <a href="https://claude.ai" target="_blank" class="card"><div class="card-header"><i class="fa-regular fa-message"></i><h3>Claude 3.7 Sonnet</h3></div><p class="lang-data" data-en="Anthropic's most balanced model, excels at code & reasoning." data-zh="Anthropic最强平衡模型，代码与逻辑双优。" data-es="Modelo equilibrado de Anthropic, código y razonamiento." data-ja="Anthropicの最もバランスの取れたモデル。"></p></a>
