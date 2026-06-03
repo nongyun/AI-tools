@@ -18,65 +18,403 @@
     <meta name="google-adsense-account" content="ca-pub-1624261597740761">
     <link rel="canonical" href="https://9420166.xyz/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google AdSense 异步加载脚本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1624261597740761" crossorigin="anonymous"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    
     <style>
-        /* 此处完整样式与您提供的原始样式完全相同，因长度限制省略，请直接复制您原站的 style 块 */
-        /* 为节省篇幅，实际部署时请将您原站 <style> 至 </style> 之间的全部内容粘贴于此 */
+        /* ==========================================================================
+           1. 现代科技风暗黑全局变量定义
+           ========================================================================== */
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #131a26;
+            --bg-sidebar: rgba(19, 26, 38, 0.7);
+            --accent-color: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 顶部科技感流光条 */
+        .top-glow-bar {
+            height: 4px;
+            background: var(--accent-gradient);
+            box-shadow: 0 2px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        /* ==========================================================================
+           2. 布局结构 (Layout)
+           ========================================================================== */
+        .layout-wrapper {
+            display: flex;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 24px;
+            gap: 32px;
+            position: relative;
+        }
+
+        /* 侧边栏：毛玻璃悬浮效果 */
+        aside {
+            width: 260px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 24px;
+            height: calc(100vh - 48px);
+            background: var(--bg-sidebar);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #asideHeading {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin: 0 0 16px 0;
+            padding-left: 8px;
+        }
+
+        /* 导航链接动效 */
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateX(4px);
+        }
+
+        /* 主内容区 */
+        main {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        /* ==========================================================================
+           3. 高收益广告容器样式 (Ads Optimization)
+           ========================================================================== */
+        .ad-container {
+            background: linear-gradient(90deg, rgba(27, 38, 59, 0.3) 0%, rgba(19, 26, 38, 0.3) 100%);
+            border: 1px dashed rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ad-container.inline-ad {
+            margin: 48px 0; /* 信息流广告上下拉开间距，更符合原生感 */
+        }
+
+        .ad-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 侧边栏底部固定广告位 */
+        .sidebar-ad-wrapper {
+            margin-top: auto; /* 推到侧边栏最底部 */
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* 顶部右侧语言栏 */
+        .lang-bar {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            display: flex;
+            gap: 4px;
+            background: rgba(19, 26, 38, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 4px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ==========================================================================
+           4. 头部与排版 (Typography)
+           ========================================================================== */
+        header {
+            margin: 20px 0 40px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 8px 0;
+            background: linear-gradient(90deg, #ffffff 40%, #a3e635 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 48px 0 24px 0;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        /* 科技感渐变前缀条 */
+        .category-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        /* ==========================================================================
+           5. 响应式优雅网格 (Grid & Cards)
+           ========================================================================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        /* 建议的卡片UI样式 */
+        .ai-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(59, 130, 246, 0.08);
+        }
+
+        footer {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 64px;
+        }
+
+        /* ==========================================================================
+           6. 移动端及平板完美适配 (Responsive)
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .layout-wrapper {
+                flex-direction: column;
+                padding: 16px;
+                gap: 20px;
+            }
+            
+            aside {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 16px;
+            }
+
+            .sidebar-ad-wrapper {
+                display: none; /* 移动端隐藏侧边栏固定广告，避免拥挤 */
+            }
+
+            .lang-bar {
+                position: static;
+                margin-bottom: 8px;
+                justify-content: flex-end;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="top-glow-bar"></div>
-<div class="lang-bar">
-    <button class="lang-btn" data-lang="en">English</button>
-    <button class="lang-btn" data-lang="zh">简体中文</button>
-    <button class="lang-btn" data-lang="es">Español</button>
-    <button class="lang-btn" data-lang="ja">日本語</button>
-</div>
+
 <div class="layout-wrapper">
+    <!-- 侧边栏区 -->
     <aside>
+        <div class="lang-bar">
+            <button class="lang-btn" data-lang="en">En</button>
+            <button class="lang-btn" data-lang="zh">中</button>
+            <button class="lang-btn" data-lang="es">Es</button>
+            <button class="lang-btn" data-lang="ja">Ja</button>
+        </div>
         <h2 id="asideHeading">📁 EXPLORE</h2>
-        <a href="/ai-chat.html" class="nav-link" id="nav-1"><i class="fa-regular fa-comment-dots"></i><span>LLMs & Chat</span></a>
-        <a href="/ai-image.html" class="nav-link" id="nav-2"><i class="fa-regular fa-image"></i><span>Image & Art</span></a>
-        <a href="/ai-video.html" class="nav-link" id="nav-3"><i class="fa-solid fa-film"></i><span>Video Motion</span></a>
-        <a href="/ai-3d.html" class="nav-link" id="nav-4"><i class="fa-solid fa-cube"></i><span>3D & Spatial</span></a>
-        <a href="/ai-human.html" class="nav-link" id="nav-5"><i class="fa-regular fa-user"></i><span>Human & Face</span></a>
-        <a href="/ai-tools.html" class="nav-link" id="nav-6"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Tools</span></a>
-        <a href="/ai-agents.html" class="nav-link" id="nav-7-agents"><i class="fa-solid fa-user-gear"></i><span>AI Agents</span></a>
+        <a href="ai-chat.html" class="nav-link" id="nav-1"><i class="fa-regular fa-comment-dots"></i><span>LLMs & Chat</span></a>
+        <a href="ai-image.html" class="nav-link" id="nav-2"><i class="fa-regular fa-image"></i><span>Image & Art</span></a>
+        <a href="ai-video.html" class="nav-link" id="nav-3"><i class="fa-solid fa-film"></i><span>Video Motion</span></a>
+        <a href="ai-3d.html" class="nav-link" id="nav-4"><i class="fa-solid fa-cube"></i><span>3D & Spatial</span></a>
+        <a href="ai-human.html" class="nav-link" id="nav-5"><i class="fa-regular fa-user"></i><span>Human & Face</span></a>
+        <a href="ai-tools.html" class="nav-link" id="nav-6"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Tools</span></a>
+        <a href="ai-agents.html" class="nav-link" id="nav-7-agents"><i class="fa-solid fa-user-gear"></i><span>AI Agents</span></a>
         <a href="https://tool.9420166.xyz" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-7"><i class="fas fa-toolbox"></i><span>工具箱</span></a>
-    </aside>
-    <main>
-        <div class="ad-container">
-            <div class="ad-label">📢 赞助商 · 推荐内容</div>
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1624261597740761" data-ad-slot="7441222926" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        
+        <!-- 💡 高收益广告位 1：PC端侧边栏常驻展示（带来极高曝光率） -->
+        <div class="sidebar-ad-wrapper">
+            <div class="ad-label">📢 SPONSOR</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1624261597740761"
+                 data-ad-slot="7441222926"
+                 data-ad-format="rectangle"
+                 data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-        <header><h1 id="main-title">Global AI & Tech Tools Directory</h1><p id="main-desc">Hand-picked premium AI tools updated daily.</p></header>
+    </aside>
 
-        <!-- 以下为全部分类卡片区块（与原站完全相同），仅将锚点链接 #cat-* 保留为页面内跳转，但侧边栏已改为独立页面，此处保持原样方便用户滚动浏览 -->
+    <!-- 主内容区 -->
+    <main>
+        <!-- 💡 高收益广告位 2：首屏黄金位（页面加载必见，点击率最高） -->
+        <div class="ad-container">
+            <div class="ad-label">📢 赞助商 · Recommended Content</div>
+            <ins class="adsbygoogle" 
+                 style="display:block" 
+                 data-ad-client="ca-pub-1624261597740761" 
+                 data-ad-slot="7441222926" 
+                 data-ad-format="auto" 
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <header>
+            <h1 id="main-title">Global AI & Tech Tools Directory</h1>
+            <p id="main-desc">Hand-picked premium AI tools updated daily.</p>
+        </header>
+
+        <!-- 分类 1 -->
         <h2 class="category-title" id="cat-1">🤖 Top LLMs & AI Chat</h2>
-        <div class="grid"><!-- 卡片组，内容与原站一致，省略复制 --></div>
+        <div class="grid">
+            <!-- 你的卡片代码放这里 -->
+        </div>
 
+        <!-- 分类 2 -->
         <h2 class="category-title" id="cat-2">🎨 AI Image & Visual Art</h2>
-        <div class="grid"><!-- 卡片组 --></div>
+        <div class="grid">
+            <!-- 你的卡片代码放这里 -->
+        </div>
 
+        <!-- 💡 高收益广告位 3：内容信息流插页广告（精准卡在用户向下滚动浏览的视觉停留点） -->
+        <div class="ad-container inline-ad">
+            <div class="ad-label">📢 您可能感兴趣的内容 Sponsor</div>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1624261597740761"
+                 data-ad-slot="7441222926"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- 分类 3 -->
         <h2 class="category-title" id="cat-3">🎬 Advanced AI Video Motion</h2>
-        <div class="grid"><!-- 卡片组 --></div>
+        <div class="grid"></div>
 
+        <!-- 分类 4 -->
         <h2 class="category-title" id="cat-4">🗿 AI 3D & Spatial Computing</h2>
-        <div class="grid"><!-- 卡片组 --></div>
+        <div class="grid"></div>
 
+        <!-- 分类 5 -->
         <h2 class="category-title" id="cat-5">🧑‍🚀 AI Digital Human & Face Swap</h2>
-        <div class="grid"><!-- 卡片组 --></div>
+        <div class="grid"></div>
 
+        <!-- 分类 6 -->
         <h2 class="category-title" id="cat-6">⚡ Creator AI Productivity Tools</h2>
-        <div class="grid"><!-- 卡片组 --></div>
+        <div class="grid"></div>
 
+        <!-- 分类 7 -->
         <h2 class="category-title" id="cat-7">🤖 Next-Gen AI Agents & No-Code Platforms</h2>
-        <div class="grid"><!-- 卡片组 --></div>
+        <div class="grid"></div>
     </main>
 </div>
-<footer>...</footer>
-<script>// 语言切换脚本，与原站相同，请复制原站 <script> 内的全部内容</script>
+
+<footer>
+    <p>&copy; 2026 Global AI Tools Directory. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // 此处请复制你原站完整的语言切换脚本
+</script>
 </body>
 </html>
