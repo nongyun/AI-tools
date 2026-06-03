@@ -1,11 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.9420166.xyz/</loc><lastmod>2026-06-03</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.9420166.xyz/ai-chat.html</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.9420166.xyz/ai-image.html</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.9420166.xyz/ai-video.html</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.9420166.xyz/ai-3d.html</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.9420166.xyz/ai-human.html</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.9420166.xyz/ai-tools.html</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.9420166.xyz/ai-agents.html</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- 首页 - 最高优先级，每日更新 -->
+  <url>
+    <loc>https://www.9420166.xyz/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/og-preview.png</image:loc>
+      <image:title>Global AI Tools Directory Preview</image:title>
+      <image:caption>Discover top AI tools and LLMs</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 分类页：LLMs & Chat -->
+  <url>
+    <loc>https://www.9420166.xyz/ai-chat.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/icons/chat-icon.png</image:loc>
+      <image:title>LLMs and AI Chat Tools</image:title>
+    </image:image>
+  </url>
+
+  <!-- 分类页：Image & Art -->
+  <url>
+    <loc>https://www.9420166.xyz/ai-image.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/icons/image-icon.png</image:loc>
+      <image:title>AI Image Generation Tools</image:title>
+    </image:image>
+  </url>
+
+  <!-- 分类页：Video Motion -->
+  <url>
+    <loc>https://www.9420166.xyz/ai-video.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/icons/video-icon.png</image:loc>
+      <image:title>AI Video Generation Tools</image:title>
+    </image:image>
+  </url>
+
+  <!-- 分类页：3D & Spatial -->
+  <url>
+    <loc>https://www.9420166.xyz/ai-3d.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/icons/3d-icon.png</image:loc>
+      <image:title>AI 3D Modeling Tools</image:title>
+    </image:image>
+  </url>
+
+  <!-- 分类页：Human & Face -->
+  <url>
+    <loc>https://www.9420166.xyz/ai-human.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/icons/human-icon.png</image:loc>
+      <image:title>AI Digital Human & Face Swap</image:title>
+    </image:image>
+  </url>
+
+  <!-- 分类页：AI Tools -->
+  <url>
+    <loc>https://www.9420166.xyz/ai-tools.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/icons/tools-icon.png</image:loc>
+      <image:title>AI Productivity Tools</image:title>
+    </image:image>
+  </url>
+
+  <!-- 分类页：AI Agents -->
+  <url>
+    <loc>https://www.9420166.xyz/ai-agents.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.9420166.xyz/assets/icons/agents-icon.png</image:loc>
+      <image:title>AI Agents & No-Code Platforms</image:title>
+    </image:image>
+  </url>
 </urlset>
