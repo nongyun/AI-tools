@@ -72,7 +72,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.9420166.xyz/assets/icons/human-icon.png</image:loc>
-      <image:title>AI Digital Human & Face Swap</image:title>
+      <image:title>AI Digital Human Face Swap</image:title>
     </image:image>
   </url>
 
@@ -96,7 +96,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.9420166.xyz/assets/icons/agents-icon.png</image:loc>
-      <image:title>AI Agents & No-Code Platforms</image:title>
+      <image:title>AI Agents No-Code Platforms</image:title>
     </image:image>
   </url>
 </urlset>
