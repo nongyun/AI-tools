@@ -17,63 +17,474 @@
     <meta name="twitter:image" content="https://9420166.xyz/assets/og-preview.png">
     <meta name="google-adsense-account" content="ca-pub-1624261597740761">
     <link rel="canonical" href="https://9420166.xyz/" />
+    <!-- 引入高质感 Web 字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- 💰 头部全局异步广告脚本（已启用全自动广告兜底，移动端底部悬浮流全靠它） -->
+    <!-- 💰 头部全局异步广告脚本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1624261597740761" crossorigin="anonymous"></script>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    
     <style>
+        /* ==========================================
+           1. 全局核心变量与复位
+           ========================================== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --bg-base: #0a1128; --sidebar-bg: rgba(16, 24, 48, 0.7); --card-bg: rgba(22, 38, 70, 0.5); --card-hover: rgba(30, 58, 106, 0.85); --text-main: #f8fafc; --text-muted: #cbd5e1; --border: rgba(255, 255, 255, 0.08); --accent: #3b82f6; --accent-glow: rgba(59, 130, 246, 0.45); }
-        @keyframes smoothAurora { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; background: linear-gradient(125deg, #0a1128, #102b47, #0b2b44, #1e3a8a, #4f46e5, #0a1128); background-size: 300% 300%; animation: smoothAurora 14s ease-in-out infinite; color: var(--text-main); min-height: 100vh; }
-        @keyframes flowLight { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
-        .top-glow-bar { height: 3px; background: linear-gradient(90deg, #3b82f6, #a855f7, #ec4899, #10b981, #facc15, #3b82f6); background-size: 300% auto; animation: flowLight 6s linear infinite; width: 100%; }
-        .lang-bar { background: rgba(5, 12, 30, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0.7rem 2rem; display: flex; justify-content: flex-end; gap: 0.7rem; position: sticky; top: 0; z-index: 110; flex-wrap: wrap; }
-        .lang-btn { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); color: #f1f5f9; padding: 0.35rem 1.1rem; font-size: 0.85rem; font-weight: 500; cursor: pointer; border-radius: 40px; transition: 0.2s; }
-        .lang-btn:hover, .lang-btn.active { color: white; border-color: var(--accent); background: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
         
-        /* 광고 컨테이너 스타일 */
-        .ad-container { max-width: 1200px; text-align: center; background: rgba(0,0,0,0.2); border-radius: 24px; backdrop-filter: blur(4px); transition: 0.3s; }
-        .ad-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; }
+        :root {
+            --bg-base: #030712;
+            --sidebar-bg: rgba(17, 24, 39, 0.45);
+            --card-bg: rgba(31, 41, 55, 0.35);
+            --card-hover: rgba(55, 65, 81, 0.5);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(59, 130, 246, 0.3);
+            --accent: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #6366f1);
+            --accent-glow: rgba(59, 130, 246, 0.3);
+        }
+
+        /* 优雅的缓动极光背景 */
+        @keyframes smoothAurora {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #030712, #0b1528, #071930, #0f172a, #030712);
+            background-size: 200% 200%;
+            animation: smoothAurora 20s ease-in-out infinite;
+            color: var(--text-main);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================
+           2. 顶部彩条与语言栏
+           ========================================== */
+        @keyframes flowLight {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .top-glow-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #10b981, #3b82f6);
+            background-size: 200% auto;
+            animation: flowLight 4s linear infinite;
+            width: 100%;
+        }
+
+        .lang-bar {
+            background: rgba(3, 7, 18, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            position: sticky;
+            top: 0;
+            z-index: 110;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 99px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lang-btn:hover {
+            color: var(--text-main);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .lang-btn.active {
+            color: #ffffff;
+            border-color: transparent;
+            background: var(--accent-gradient);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        /* ==========================================
+           3. 网站主广告位样式融合
+           ========================================== */
+        .ad-container-top {
+            max-width: 1200px;
+            margin: 1rem auto 2.5rem auto;
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.02);
+            border: 1px dashed rgba(59, 130, 246, 0.15);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .ad-container-grid {
+            grid-column: span 1;
+            background: rgba(255, 255, 255, 0.01) !important;
+            border: 1px dashed rgba(168, 85, 247, 0.2) !important;
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 290px;
+            box-shadow: none !important;
+            border-radius: 24px;
+        }
+
+        .ad-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           4. 页面主体布局结构
+           ========================================== */
+        .layout-wrapper {
+            display: flex;
+            max-width: 1400px;
+            width: 100%;
+            margin: 1.5rem auto 0;
+            padding: 0 2rem;
+            gap: 2.5rem;
+        }
+
+        /* 侧边栏完美重构 */
+        aside {
+            width: 260px;
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 140px);
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 1.5rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        aside h2 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #6b7280;
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link i {
+            width: 20px;
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0.7;
+            transition: transform 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
         
-        .layout-wrapper { display: flex; max-width: 1260px; width: 100%; margin: 0.5rem auto 0; padding: 0 1.8rem; gap: 2rem; }
-        aside { width: 250px; position: sticky; top: 88px; height: calc(100vh - 110px); background: var(--sidebar-bg); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 28px; padding: 1.8rem 1rem; display: flex; flex-direction: column; gap: 0.4rem; overflow-y: auto; }
-        aside h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #94a3b8; margin-bottom: 1rem; padding-left: 0.6rem; }
-        .nav-link { display: flex; align-items: center; gap: 0.9rem; padding: 0.75rem 1rem; color: var(--text-muted); text-decoration: none; border-radius: 14px; font-size: 0.95rem; font-weight: 500; transition: 0.2s; }
-        .nav-link i { width: 24px; font-size: 1.2rem; text-align: center; }
-        .nav-link:hover { background: rgba(59,130,246,0.2); color: white; padding-left: 1.3rem; }
-        .nav-link.active { background: rgba(59,130,246,0.3); color: white; border-left: 3px solid var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
-        main { flex: 1; padding-top: 0.5rem; }
-        header h1 { font-size: 2.8rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #b9e0ff, #90aef0); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        header p { color: #94a3b8; font-size: 1.1rem; margin-top: 0.4rem; margin-bottom: 1.5rem; }
-        .category-title { font-size: 1.7rem; font-weight: 700; margin: 2rem 0 1.4rem 0; display: flex; align-items: center; gap: 0.6rem; }
-        .category-title::before { content: ''; width: 8px; height: 28px; background: var(--accent); border-radius: 8px; box-shadow: 0 0 12px var(--accent); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .card { position: relative; background: var(--card-bg); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.07); border-radius: 24px; padding: 1.6rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.3s; box-shadow: 0 12px 28px rgba(0,0,0,0.2); padding-bottom: 3rem; }
-        .card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-        .card-header i { font-size: 1.6rem; color: #7aa9ff; filter: drop-shadow(0 0 4px #3b82f6); }
-        .card h3 { font-size: 1.28rem; font-weight: 600; color: white; margin: 0; }
-        .card p { color: #e2e8f0; font-size: 0.9rem; line-height: 1.45; flex: 1; opacity: 0.9; }
-        .card::after { content: "↗"; position: absolute; bottom: 1.3rem; right: 1.5rem; opacity: 0; transition: 0.2s; font-weight: bold; color: #60a5fa; }
-        .card:hover { background: var(--card-hover); transform: translateY(-5px); box-shadow: 0 20px 36px rgba(0,0,0,0.45), 0 0 18px rgba(59,130,246,0.4); }
-        .card:hover::after { opacity: 1; transform: translateX(3px); }
-        footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem 1rem; margin-top: 3rem; background: rgba(8, 14, 32, 0.6); backdrop-filter: blur(10px); color: #94a3b8; }
-        @media (max-width: 1024px) { .layout-wrapper { flex-direction: column; padding: 0 1rem; } aside { width: 100%; height: auto; position: sticky; top: 45px; flex-direction: row; overflow-x: auto; padding: 0.6rem 1rem; border-radius: 0; background: rgba(10, 17, 40, 0.9); z-index: 100; } aside h2 { display: none; } .nav-link { display: inline-flex; padding: 0.4rem 0.9rem; white-space: nowrap; } .category-title { font-size: 1.4rem; } header h1 { font-size: 2rem; } }
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 1.6rem; } .category-title { font-size: 1.3rem; } .card { padding: 1.2rem; padding-bottom: 2.5rem; } }
+        .nav-link:hover i {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .nav-link.active {
+            background: rgba(5b, 131, 246, 0.1);
+            color: #60a5fa;
+            font-weight: 600;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .nav-link.active i {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        /* 主内容区 */
+        main {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 分类标题设计 */
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            letter-spacing: -0.01em;
+        }
+
+        .category-title::before {
+            content: '';
+            width: 5px;
+            height: 22px;
+            background: var(--accent-gradient);
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* ==========================================
+           5. 优雅的工具卡片网格布局
+           ========================================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            position: relative;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-bottom: 3.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-header i {
+            font-size: 1.4rem;
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* 悬浮动效增强 */
+        .card::after {
+            content: "↗";
+            position: absolute;
+            bottom: 1.2rem;
+            right: 1.5rem;
+            opacity: 0;
+            transform: translate(-4px, 4px);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: bold;
+            color: #60a5fa;
+            font-size: 1.1rem;
+        }
+
+        .card:hover {
+            background: var(--card-hover);
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 1px var(--accent);
+        }
+
+        .card:hover .card-header i {
+            background: var(--accent-gradient);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* ==========================================
+           6. 现代页脚
+           ========================================== */
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 5rem;
+            background: rgba(3, 7, 18, 0.4);
+            backdrop-filter: blur(16px);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.8rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            color: #60a5fa;
+        }
+
+        /* ==========================================
+           7. 高级极简响应式重构 (Mobile & Tablet)
+           ========================================== */
+        @media (max-width: 1024px) {
+            .layout-wrapper {
+                flex-direction: column;
+                padding: 0 1.2rem;
+                gap: 1.5rem;
+            }
+
+            /* 移动端横向滑动菜单优雅化 */
+            aside {
+                width: calc(100% + 2.4rem);
+                margin-left: -1.2rem;
+                height: auto;
+                position: sticky;
+                top: 57px; /* 紧贴上方的语言栏 */
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 0.6rem 1.2rem;
+                border-radius: 0;
+                background: rgba(3, 7, 18, 0.8);
+                border-left: none;
+                border-right: none;
+                z-index: 100;
+                scrollbar-width: none; /* 隐蔽火狐滚动条 */
+            }
+
+            aside::-webkit-scrollbar {
+                display: none; /* 隐蔽谷歌/苹果内建滚动条，保持绝对纯净 */
+            }
+
+            aside h2 { display: none; }
+
+            .nav-link {
+                display: inline-flex;
+                padding: 0.5rem 1rem;
+                white-space: nowrap;
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid var(--border);
+            }
+            
+            .nav-link.active {
+                border-left: 1px solid var(--border);
+                background: rgba(59, 130, 246, 0.15);
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+
+            .category-title { font-size: 1.3rem; }
+            header h1 { font-size: 2rem; }
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr; /* 手机端单列平铺 */
+                gap: 1rem;
+            }
+            header h1 { font-size: 1.7rem; }
+            .lang-bar {
+                padding: 0.6rem 1rem;
+                justify-content: center; /* 手机端居中排布 */
+            }
+            .lang-btn {
+                padding: 0.35rem 0.9rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
+
 <div class="top-glow-bar"></div>
+
 <div class="lang-bar">
     <button class="lang-btn" data-lang="en">English</button>
     <button class="lang-btn" data-lang="zh">简体中文</button>
     <button class="lang-btn" data-lang="es">Español</button>
     <button class="lang-btn" data-lang="ja">日本語</button>
 </div>
+
 <div class="layout-wrapper">
-    <!-- 📁 侧边栏：多页面独立无 # 架构链接 -->
+    <!-- 📁 左侧侧边分类导航 -->
     <aside>
         <h2 id="asideHeading">📁 EXPLORE</h2>
         <a href="ai-chat.html" id="nav-1" class="nav-link"><i class="fa-regular fa-comment-dots"></i><span>LLMs & Chat</span></a>
@@ -86,12 +497,11 @@
         <a href="https://tools123.asia" target="_blank" class="nav-link"><i class="fas fa-toolbox"></i><span>工具箱</span></a>
     </aside>
     
-    <!-- 🎛️ 主内容区：全站卡死有且仅有 2 处广告，高智商卡位拉爆单价 -->
+    <!-- 🎛️ 主内容展示区 -->
     <main>
-        <!-- 💰 高单价广告位一：首屏防误触黄金横幅（拉开 2.5rem 间距防错点，锁死最高阶竞价） -->
-        <div class="ad-container" style="margin: 0rem auto 2.5rem auto; padding: 12px; background: rgba(59, 130, 246, 0.03); border: 1px solid rgba(59, 130, 246, 0.12); border-radius: 16px;">
-            <div class="ad-label" style="color: #60a5fa; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600;"><i class="fa-solid fa-rectangle-ad"></i> SPONSOR · 赞助商推荐内容</div>
-            
+        <!-- 💰 高单价广告位一：首屏防误触黄金横幅 -->
+        <div class="ad-container-top">
+            <div class="ad-label" style="color: #60a5fa; font-size: 0.75rem; margin-bottom: 10px;"><i class="fa-solid fa-rectangle-ad"></i> SPONSOR · 赞助商推荐内容</div>
             <ins class="adsbygoogle"
                  style="display:block; min-height:90px; max-height:200px;"
                  data-ad-client="ca-pub-1624261597740761"
@@ -107,19 +517,19 @@
         </header>
 
         <h2 class="category-title" id="cat-title">🤖 Top LLMs & AI Chat</h2>
+        
         <div class="grid">
             <a href="https://deepseek.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-brain"></i><h3>DeepSeek R1</h3></div><p class="lang-data" data-en="Revolutionary reasoning model with top performance." data-zh="深度逻辑推理大模型，开源性能巅峰。" data-es="Modelo de razonamiento revolucionario con máximo rendimiento." data-ja="革新的推論モデル、トップクラスの性能。"></p></a>
             <a href="https://gemini.google.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-gem"></i><h3>Google Gemini</h3></div><p class="lang-data" data-en="Google's flagship multimodal AI for native reasoning." data-zh="谷歌原生多模态旗舰，无缝文本/图像/视频。" data-es="IA multimodal insignia de Google." data-ja="グーグルのフラッグシップマルチモーダルAI。"></p></a>
-            <a href="https://chatgpt.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-bolt"></i><h3>ChatGPT</h3></div><p class="lang-data" data-en="The gold standard AI assistant powered by GPT-4o and o1." data-zh="行业标杆级AI，GPT-4o与o1强强联合。" data-es="El asistente de IA estándar de oro." data-ja="GPT-4oとo1搭載、対話AI的ゴールドスタンダード。"></p></a>
+            <a href="https://chatgpt.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-bolt"></i><h3>ChatGPT</h3></div><p class="lang-data" data-en="The gold standard AI assistant powered by GPT-4o and o1." data-zh="行业标杆级AI，GPT-4o与o1强强联合。" data-es="El asistente de IA estándar de oro." data-ja="GPT-4oとo1搭載、对话AI的ゴールドスタンダード。"></p></a>
             <a href="https://tongyi.aliyun.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-feather"></i><h3>Qwen (通义千问)</h3></div><p class="lang-data" data-en="Alibaba's premier LLM with superior multilingual skills." data-zh="阿里巴巴通义千问，领先多语言理解。" data-es="LLM premium de Alibaba, habilidades multilingües." data-ja="アリババのプレミアム大言語モデル。"></p></a>
 
-            <!-- 💰 高单价广告位二：网格第 5 位（高意向、独立卡片展示广告）
-                 带 ADS 标签做自然意向筛选，进站用户停留时间长，疯狂刷爆谷歌的“智能得分”机制 -->
-            <div class="card" style="grid-column: span 1; background: rgba(15, 23, 42, 0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px; box-shadow: none;">
-                <div class="ad-label" style="color: #a855f7; font-size: 0.7rem; margin-bottom: 12px; letter-spacing: 0.05em;"><i class="fa-solid fa-circle-info"></i> ADS · 赞助商广告</div>
+            <!-- 💰 高单价广告位二：网格原生信息流广告卡片 -->
+            <div class="ad-container-grid">
+                <div class="ad-label" style="color: #c084fc; font-size: 0.7rem; margin-bottom: 12px;"><i class="fa-solid fa-circle-info"></i> ADS · 赞助商广告</div>
                 <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
                     <ins class="adsbygoogle"
-                         style="display:block; width:100%; height:100%; min-height:200px;"
+                         style="display:block; width:100%; height:100%; min-height:220px;"
                          data-ad-client="ca-pub-1624261597740761"
                          data-ad-slot="7441222926"
                          data-ad-format="rectangle"
@@ -135,9 +545,18 @@
         </div>
     </main>
 </div>
-<footer><p id="footerCopyright">© 2026 Global AI Directory. All rights reserved.</p><p><a href="#" id="footerPrivacy">Privacy Policy</a> | <a href="#" id="footerTerms">Terms of Service</a> | <a href="mailto:ai@toolhub.com" id="footerContact">Contact Us</a></p></footer>
+
+<footer>
+    <p id="footerCopyright">© 2026 Global AI Directory. All rights reserved.</p>
+    <p>
+        <a href="#" id="footerPrivacy">Privacy Policy</a> | 
+        <a href="#" id="footerTerms">Terms of Service</a> | 
+        <a href="mailto:ai@toolhub.com" id="footerContact">Contact Us</a>
+    </p>
+</footer>
 
 <script>
+    // 保留您完整而强大的 i18n 语言及高亮逻辑
     const i18n = {
         en: { title: "Global AI & Tech Tools Directory", desc: "Hand-picked premium AI tools updated daily.", cat: "🤖 Top LLMs & AI Chat", nav1: "LLMs & Chat", nav2: "Image & Art", nav3: "Video Motion", nav4: "3D & Spatial", nav5: "Human & Face", nav6: "AI Tools", nav7Agents: "AI Agents", nav7: "Toolbox", asideHeading: "📁 EXPLORE", footerCopyright: "© 2026 Global AI Directory. All rights reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service", footerContact: "Contact Us" },
         zh: { title: "全球热门 AI 智能工具导航", desc: "每日精选更新，聚合海内外顶尖 AI 效率与创意工具。", cat: "🤖 爆款语言大模型与 AI 对话", nav1: "大模型与对话", nav2: "图像与艺术", nav3: "视频生成", nav4: "3D与空间", nav5: "数字人与换脸", nav6: "AI工具箱", nav7Agents: "AI 智能体", nav7: "工具箱", asideHeading: "📁 探索分类", footerCopyright: "© 2026 智域导航 · 全球AI工具集 保留所有权利", footerPrivacy: "隐私政策", footerTerms: "服务条款", footerContact: "联系我们" },
@@ -170,10 +589,9 @@
         });
     }
 
-    // 🌐 基于当前页面绝对名称的精密导航高亮逻辑
     function highlightNav() {
         const path = window.location.pathname;
-        let activeId = 'nav-1'; // 默认 index.html 激活
+        let activeId = 'nav-1';
         if (path.includes('ai-image.html')) activeId = 'nav-2';
         else if (path.includes('ai-video.html')) activeId = 'nav-3';
         else if (path.includes('ai-3d.html')) activeId = 'nav-4';
