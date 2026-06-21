@@ -17,13 +17,11 @@
     <meta name="twitter:image" content="https://9420166.xyz/assets/og-preview.png">
     <meta name="google-adsense-account" content="ca-pub-1624261597740761">
     <link rel="canonical" href="https://9420166.xyz/" />
-    <!-- 引入高质感 Web 字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- 💰 头部全局异步广告脚本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1624261597740761" crossorigin="anonymous"></script>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
@@ -124,7 +122,7 @@
            ========================================== */
         .ad-container-top {
             max-width: 1200px;
-            margin: 1rem auto 2.5rem auto;
+            margin: 0 auto 2rem auto;
             padding: 1rem;
             background: rgba(59, 130, 246, 0.02);
             border: 1px dashed rgba(59, 130, 246, 0.15);
@@ -165,7 +163,7 @@
             gap: 2.5rem;
         }
 
-        /* 侧边栏完美重构 */
+        /* 侧边栏 */
         aside {
             width: 260px;
             position: sticky;
@@ -180,6 +178,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.3rem;
+            flex-shrink: 0;
         }
 
         aside h2 {
@@ -238,7 +237,7 @@
         /* 主内容区 */
         main {
             flex: 1;
-            overflow: hidden;
+            min-width: 0; /* 解决 flex 子元素遭遇 Grid 时的潜在溢出 bug */
         }
 
         header {
@@ -283,7 +282,7 @@
         }
 
         /* ==========================================
-           5. 优雅的工具卡片网格布局
+           5. 工具卡片网格布局
            ========================================== */
         .grid {
             display: grid;
@@ -342,7 +341,6 @@
             flex: 1;
         }
 
-        /* 悬浮动效增强 */
         .card::after {
             content: "↗";
             position: absolute;
@@ -375,7 +373,7 @@
         }
 
         /* ==========================================
-           6. 现代页脚
+           6. 页脚
            ========================================== */
         footer {
             border-top: 1px solid var(--border);
@@ -404,7 +402,7 @@
         }
 
         /* ==========================================
-           7. 高级极简响应式重构 (Mobile & Tablet)
+           7. 响应式重构 (Mobile & Tablet)
            ========================================== */
         @media (max-width: 1024px) {
             .layout-wrapper {
@@ -413,13 +411,12 @@
                 gap: 1.5rem;
             }
 
-            /* 移动端横向滑动菜单优雅化 */
             aside {
                 width: calc(100% + 2.4rem);
                 margin-left: -1.2rem;
                 height: auto;
                 position: sticky;
-                top: 57px; /* 紧贴上方的语言栏 */
+                top: 57px; 
                 flex-direction: row;
                 overflow-x: auto;
                 padding: 0.6rem 1.2rem;
@@ -428,11 +425,11 @@
                 border-left: none;
                 border-right: none;
                 z-index: 100;
-                scrollbar-width: none; /* 隐蔽火狐滚动条 */
+                scrollbar-width: none; 
             }
 
             aside::-webkit-scrollbar {
-                display: none; /* 隐蔽谷歌/苹果内建滚动条，保持绝对纯净 */
+                display: none; 
             }
 
             aside h2 { display: none; }
@@ -457,13 +454,13 @@
 
         @media (max-width: 640px) {
             .grid {
-                grid-template-columns: 1fr; /* 手机端单列平铺 */
+                grid-template-columns: 1fr; 
                 gap: 1rem;
             }
             header h1 { font-size: 1.7rem; }
             .lang-bar {
                 padding: 0.6rem 1rem;
-                justify-content: center; /* 手机端居中排布 */
+                justify-content: center; 
             }
             .lang-btn {
                 padding: 0.35rem 0.9rem;
@@ -484,7 +481,6 @@
 </div>
 
 <div class="layout-wrapper">
-    <!-- 📁 左侧侧边分类导航 -->
     <aside>
         <h2 id="asideHeading">📁 EXPLORE</h2>
         <a href="ai-chat.html" id="nav-1" class="nav-link"><i class="fa-regular fa-comment-dots"></i><span>LLMs & Chat</span></a>
@@ -497,22 +493,18 @@
         <a href="https://tools123.asia" target="_blank" class="nav-link"><i class="fas fa-box"></i><span>工具箱</span></a>
     </aside>
     
-    <!-- 🎛️ 主内容展示区 -->
     <main>
-        <!-- 💰 高单价广告位一：首屏防误触黄金横幅 -->
+        <div class="ad-container-top">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-1624261597740761"
+                data-ad-slot="7441222926"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1624261597740761"
-            crossorigin="anonymous"></script>
-        <!-- zongxiang -->
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-1624261597740761"
-            data-ad-slot="7441222926"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
 
         <header>
             <h1 id="main-title">Global AI & Tech Tools Directory</h1>
@@ -527,7 +519,6 @@
             <a href="https://chatgpt.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-bolt"></i><h3>ChatGPT</h3></div><p class="lang-data" data-en="The gold standard AI assistant powered by GPT-4o and o1." data-zh="行业标杆级AI，GPT-4o与o1强强联合。" data-es="El asistente de IA estándar de oro." data-ja="GPT-4oとo1搭載、对话AI的ゴールドスタンダード。"></p></a>
             <a href="https://tongyi.aliyun.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-feather"></i><h3>Qwen (通义千问)</h3></div><p class="lang-data" data-en="Alibaba's premier LLM with superior multilingual skills." data-zh="阿里巴巴通义千问，领先多语言理解。" data-es="LLM premium de Alibaba, habilidades multilingües." data-ja="アリババのプレミアム大言語モデル。"></p></a>
 
-            <!-- 💰 高单价广告位二：网格原生信息流广告卡片 -->
             <div class="ad-container-grid">
                 <div class="ad-label" style="color: #c084fc; font-size: 0.7rem; margin-bottom: 12px;"><i class="fa-solid fa-circle-info"></i> ADS · 赞助商广告</div>
                 <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
@@ -559,7 +550,6 @@
 </footer>
 
 <script>
-    // 保留您完整而强大的 i18n 语言及高亮逻辑
     const i18n = {
         en: { title: "Global AI & Tech Tools Directory", desc: "Hand-picked premium AI tools updated daily.", cat: "🤖 Top LLMs & AI Chat", nav1: "LLMs & Chat", nav2: "Image & Art", nav3: "Video Motion", nav4: "3D & Spatial", nav5: "Human & Face", nav6: "AI Tools", nav7Agents: "AI Agents", nav7: "Toolbox", asideHeading: "📁 EXPLORE", footerCopyright: "© 2026 Global AI Directory. All rights reserved.", footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service", footerContact: "Contact Us" },
         zh: { title: "全球热门 AI 智能工具导航", desc: "每日精选更新，聚合海内外顶尖 AI 效率与创意工具。", cat: "🤖 爆款语言大模型与 AI 对话", nav1: "大模型与对话", nav2: "图像与艺术", nav3: "视频生成", nav4: "3D与空间", nav5: "数字人与换脸", nav6: "AI工具箱", nav7Agents: "AI 智能体", nav7: "工具箱", asideHeading: "📁 探索分类", footerCopyright: "© 2026 智域导航 · 全球AI工具集 保留所有权利", footerPrivacy: "隐私政策", footerTerms: "服务条款", footerContact: "联系我们" },
