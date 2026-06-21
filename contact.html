@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Contact Us | Global AI Tools Directory</title>
+    <meta name="description" content="Get in touch with Global AI Tools Directory.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-base: #030712;
+            --sidebar-bg: rgba(17, 24, 39, 0.45);
+            --card-bg: rgba(31, 41, 55, 0.35);
+            --card-hover: rgba(55, 65, 81, 0.5);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(59, 130, 246, 0.3);
+            --accent: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #6366f1);
+            --accent-glow: rgba(59, 130, 246, 0.3);
+        }
+
+        @keyframes smoothAurora {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #030712, #0b1528, #071930, #0f172a, #030712);
+            background-size: 200% 200%;
+            animation: smoothAurora 20s ease-in-out infinite;
+            color: var(--text-main);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @keyframes flowLight {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .top-glow-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #10b981, #3b82f6);
+            background-size: 200% auto;
+            animation: flowLight 4s linear infinite;
+            width: 100%;
+        }
+
+        .lang-bar {
+            background: rgba(3, 7, 18, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            position: sticky;
+            top: 0;
+            z-index: 110;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 99px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lang-btn.active {
+            color: #ffffff;
+            border-color: transparent;
+            background: var(--accent-gradient);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .layout-wrapper {
+            display: flex;
+            max-width: 1400px;
+            width: 100%;
+            margin: 1.5rem auto 0;
+            padding: 0 2rem;
+            gap: 2.5rem;
+        }
+
+        aside {
+            width: 260px;
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 140px);
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 1.5rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        aside h2 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #6b7280;
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link i {
+            width: 20px;
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        .nav-link.active {
+            background: rgba(5b, 131, 246, 0.1);
+            color: #60a5fa;
+            font-weight: 600;
+            border-left: 3px solid var(--accent);
+        }
+
+        main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            line-height: 1.8;
+        }
+
+        .content-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .content-card h2::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        .content-card p {
+            color: #d1d5db;
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 640px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .btn-submit {
+            background: var(--accent-gradient);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 5rem;
+            background: rgba(3, 7, 18, 0.4);
+            backdrop-filter: blur(16px);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p { margin-bottom: 0.8rem; }
+        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; margin: 0 0.5rem; }
+        footer a:hover { color: #60a5fa; }
+
+        @media (max-width: 1024px) {
+            .layout-wrapper { flex-direction: column; padding: 0 1.2rem; gap: 1.5rem; }
+            aside { width: calc(100% + 2.4rem); margin-left: -1.2rem; height: auto; position: sticky; top: 57px; flex-direction: row; overflow-x: auto; padding: 0.6rem 1.2rem; border-radius: 0; background: rgba(3, 7, 18, 0.8); z-index: 100; }
+            aside h2 { display: none; }
+            .nav-link { display: inline-flex; padding: 0.5rem 1rem; white-space: nowrap; }
+        }
+    </style>
+</head>
+<body>
+<div class="top-glow-bar"></div>
+<div class="lang-bar">
+    <button class="lang-btn active">English</button>
+</div>
+<div class="layout-wrapper">
+    <aside>
+        <h2 id="asideHeading">📁 EXPLORE</h2>
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="ai-chat.html" class="nav-link"><i class="fa-regular fa-comment-dots"></i><span>LLMs & Chat</span></a>
+        <a href="ai-image.html" class="nav-link"><i class="fa-regular fa-image"></i><span>Image & Art</span></a>
+        <a href="ai-video.html" class="nav-link"><i class="fa-solid fa-film"></i><span>Video Motion</span></a>
+        <a href="ai-agents.html" class="nav-link"><i class="fa-solid fa-user-gear"></i><span>AI Agents</span></a>
+    </aside>
+    <main>
+        <header>
+            <h1>Contact Us</h1>
+            <p>Have a question or proposal? Drop us a line below.</p>
+        </header>
+        <div class="content-card">
+            <h2>Get in Touch</h2>
+            <p>If you are an AI developer looking to feature your tool, or if you have any advertisement proposals or compliance updates, please contact us directly via email:</p>
+            <p style="font-size: 1.1rem; font-weight: 600; color: #60a5fa; margin-bottom: 2rem;">
+                <i class="fa-regular fa-envelope"></i> nongyun8@gmail.com
+            </p>
+
+            <h2>Send a Quick Message</h2>
+            <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-input" rows="5" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Message</button>
+            </form>
+        </div>
+    </main>
+</div>
+<footer>
+    <p id="footerCopyright">© 2026 Global AI Directory. All rights reserved.</p>
+    <p>
+        <a href="about.html">About Us</a> | 
+        <a href="Privacy.html">Privacy Policy</a> | 
+        <a href="Contact Us.html">Contact Us</a>
+    </p>
+</footer>
+</body>
+</html>
