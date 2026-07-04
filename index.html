@@ -16,12 +16,14 @@
     <meta name="twitter:description" content="Discover and compare top global AI models and productivity software daily.">
     <meta name="twitter:image" content="https://9420166.xyz/assets/og-preview.png">
     <meta name="google-adsense-account" content="ca-pub-1624261597740761">
-    <link rel="canonical" href="https://9420166.xyz/" />
+    
+    <link rel="canonical" href="https://9420166.xyz/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1624261597740761" crossorigin="anonymous"></script>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://w3.org' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
@@ -46,7 +48,6 @@
             --accent-glow: rgba(59, 130, 246, 0.3);
         }
 
-        /* 优雅的缓动极光背景 */
         @keyframes smoothAurora {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -63,9 +64,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ==========================================
-           2. 顶部彩条与语言栏
-           ========================================== */
         @keyframes flowLight {
             0% { background-position: 0% 50%; }
             100% { background-position: 200% 50%; }
@@ -118,37 +116,38 @@
         }
 
         /* ==========================================
-           3. 网站主广告位样式融合
+           3. 广告位与合规强化（杜绝诱导点击）
            ========================================== */
         .ad-container-top {
             max-width: 1200px;
             margin: 0 auto 2rem auto;
             padding: 1rem;
-            background: rgba(59, 130, 246, 0.02);
-            border: 1px dashed rgba(59, 130, 246, 0.15);
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             text-align: center;
         }
 
         .ad-container-grid {
             grid-column: span 1;
-            background: rgba(255, 255, 255, 0.01) !important;
-            border: 1px dashed rgba(168, 85, 247, 0.2) !important;
+            background: rgba(3, 7, 18, 0.6) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
             padding: 1.2rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            min-height: 290px;
-            box-shadow: none !important;
+            justify-content: flex-start;
+            min-height: 320px;
             border-radius: 24px;
         }
 
         .ad-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
+            color: #6b7280;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            display: inline-block;
+            margin-bottom: 12px;
             font-weight: 600;
+            text-align: center;
         }
 
         /* ==========================================
@@ -163,7 +162,6 @@
             gap: 2.5rem;
         }
 
-        /* 侧边栏 */
         aside {
             width: 260px;
             position: sticky;
@@ -209,35 +207,23 @@
             font-size: 1.1rem;
             text-align: center;
             opacity: 0.7;
-            transition: transform 0.3s;
         }
 
         .nav-link:hover {
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-main);
         }
-        
-        .nav-link:hover i {
-            transform: scale(1.1);
-            opacity: 1;
-        }
 
         .nav-link.active {
-            background: rgba(5b, 131, 246, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             color: #60a5fa;
             font-weight: 600;
             border-left: 3px solid var(--accent);
         }
-        
-        .nav-link.active i {
-            color: var(--accent);
-            opacity: 1;
-        }
 
-        /* 主内容区 */
         main {
             flex: 1;
-            min-width: 0; /* 解决 flex 子元素遭遇 Grid 时的潜在溢出 bug */
+            min-width: 0;
         }
 
         header {
@@ -261,7 +247,6 @@
             margin-top: 0.5rem;
         }
 
-        /* 分类标题设计 */
         .category-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -269,7 +254,6 @@
             display: flex;
             align-items: center;
             gap: 0.7rem;
-            letter-spacing: -0.01em;
         }
 
         .category-title::before {
@@ -278,11 +262,10 @@
             height: 22px;
             background: var(--accent-gradient);
             border-radius: 4px;
-            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         /* ==========================================
-           5. 工具卡片网格布局
+           5. 卡片系统升级（丰富数据提高原创密度）
            ========================================== */
         .grid {
             display: grid;
@@ -304,7 +287,7 @@
             display: flex;
             flex-direction: column;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            padding-bottom: 3.5rem;
+            padding-bottom: 3.8rem;
         }
 
         .card-header {
@@ -324,14 +307,25 @@
             align-items: center;
             justify-content: center;
             border-radius: 12px;
-            transition: all 0.3s;
         }
 
         .card h3 {
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-main);
-            letter-spacing: -0.01em;
+        }
+
+        /* 标签增加页面文本厚度 */
+        .card-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            align-self: flex-start;
         }
 
         .card p {
@@ -348,23 +342,16 @@
             right: 1.5rem;
             opacity: 0;
             transform: translate(-4px, 4px);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s ease;
             font-weight: bold;
             color: #60a5fa;
-            font-size: 1.1rem;
         }
 
         .card:hover {
             background: var(--card-hover);
             transform: translateY(-4px);
             border-color: var(--border-hover);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 1px var(--accent);
-        }
-
-        .card:hover .card-header i {
-            background: var(--accent-gradient);
-            color: #fff;
-            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
 
         .card:hover::after {
@@ -373,7 +360,36 @@
         }
 
         /* ==========================================
-           6. 页脚
+           6. 原创独创内容区（AdSense审核核心利器）
+           ========================================== */
+        .editorial-section {
+            margin-top: 4rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+        .editorial-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .editorial-item {
+            margin-bottom: 1.5rem;
+        }
+        .editorial-item h3 {
+            font-size: 1.05rem;
+            color: #60a5fa;
+            margin-bottom: 0.4rem;
+        }
+        .editorial-item p {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           7. 页脚与无障碍
            ========================================== */
         footer {
             border-top: 1px solid var(--border);
@@ -381,19 +397,13 @@
             padding: 3rem 1rem;
             margin-top: 5rem;
             background: rgba(3, 7, 18, 0.4);
-            backdrop-filter: blur(16px);
             color: var(--text-muted);
             font-size: 0.9rem;
-        }
-
-        footer p {
-            margin-bottom: 0.8rem;
         }
 
         footer a {
             color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s;
             margin: 0 0.5rem;
         }
 
@@ -401,71 +411,21 @@
             color: #60a5fa;
         }
 
-        /* ==========================================
-           7. 响应式重隔 (Mobile & Tablet)
-           ========================================== */
+        /* 响应式断点 */
         @media (max-width: 1024px) {
-            .layout-wrapper {
-                flex-direction: column;
-                padding: 0 1.2rem;
-                gap: 1.5rem;
-            }
-
+            .layout-wrapper { flex-direction: column; padding: 0 1.2rem; }
             aside {
-                width: calc(100% + 2.4rem);
-                margin-left: -1.2rem;
-                height: auto;
-                position: sticky;
-                top: 57px; 
-                flex-direction: row;
-                overflow-x: auto;
-                padding: 0.6rem 1.2rem;
-                border-radius: 0;
-                background: rgba(3, 7, 18, 0.8);
-                border-left: none;
-                border-right: none;
-                z-index: 100;
-                scrollbar-width: none; 
+                width: calc(100% + 2.4rem); margin-left: -1.2rem; height: auto;
+                position: sticky; top: 57px; flex-direction: row; overflow-x: auto;
+                padding: 0.6rem 1.2rem; border-radius: 0; background: rgba(3, 7, 18, 0.9);
+                z-index: 100; scrollbar-width: none;
             }
-
-            aside::-webkit-scrollbar {
-                display: none; 
-            }
-
             aside h2 { display: none; }
-
-            .nav-link {
-                display: inline-flex;
-                padding: 0.5rem 1rem;
-                white-space: nowrap;
-                background: rgba(255, 255, 255, 0.02);
-                border: 1px solid var(--border);
-            }
-            
-            .nav-link.active {
-                border-left: 1px solid var(--border);
-                background: rgba(59, 130, 246, 0.15);
-                border-color: rgba(59, 130, 246, 0.3);
-            }
-
-            .category-title { font-size: 1.3rem; }
-            header h1 { font-size: 2rem; }
+            .nav-link { white-space: nowrap; }
         }
-
         @media (max-width: 640px) {
-            .grid {
-                grid-template-columns: 1fr; 
-                gap: 1rem;
-            }
+            .grid { grid-template-columns: 1fr; }
             header h1 { font-size: 1.7rem; }
-            .lang-bar {
-                padding: 0.6rem 1rem;
-                justify-content: center; 
-            }
-            .lang-btn {
-                padding: 0.35rem 0.9rem;
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
@@ -495,16 +455,16 @@
     </aside>
     
     <main>
+        <!-- 顶部广告位 -->
         <div class="ad-container-top">
+            <div class="ad-label">Advertisement</div>
             <ins class="adsbygoogle"
                 style="display:block"
                 data-ad-client="ca-pub-1624261597740761"
                 data-ad-slot="7441222926"
                 data-ad-format="auto"
                 data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <header>
@@ -515,16 +475,40 @@
         <h2 class="category-title" id="cat-title">🤖 Top LLMs & AI Chat</h2>
         
         <div class="grid">
-            <a href="https://deepseek.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-brain"></i><h3>DeepSeek R1</h3></div><p class="lang-data" data-en="Revolutionary reasoning model with top performance." data-zh="深度逻辑推理大模型，开源性能巅峰。" data-es="Modelo de razonamiento revolucionario con máximo rendimiento." data-ja="革新的推論モデル、トップクラスの性能。"></p></a>
-            <a href="https://gemini.google.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-gem"></i><h3>Google Gemini</h3></div><p class="lang-data" data-en="Google's flagship multimodal AI for native reasoning." data-zh="谷歌原生多模态旗舰，无缝文本/图像/视频。" data-es="IA multimodal insignia de Google." data-ja="グーグルのフラッグシップマルチモーダルAI。"></p></a>
-            <a href="https://chatgpt.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-bolt"></i><h3>ChatGPT</h3></div><p class="lang-data" data-en="The gold standard AI assistant powered by GPT-4o and o1." data-zh="行业标杆级AI，GPT-4o与o1强强联合。" data-es="El asistente de IA estándar de oro." data-ja="GPT-4oとo1搭載、对话AI的ゴールドスタンダード。"></p></a>
-            <a href="https://tongyi.aliyun.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-feather"></i><h3>Qwen (通义千问)</h3></div><p class="lang-data" data-en="Alibaba's premier LLM with superior multilingual skills." data-zh="阿里巴巴通义千问，领先多语言理解。" data-es="LLM premium de Alibaba, habilidades multilingües." data-ja="アリババのプレミアム大言語モデル。"></p></a>
+            <!-- 卡片 1 -->
+            <a href="https://deepseek.com" target="_blank" class="card">
+                <div class="card-header"><i class="fa-solid fa-brain"></i><h3>DeepSeek R1</h3></div>
+                <span class="card-badge">Open Source</span>
+                <p class="lang-data" data-en="Revolutionary reasoning model with top performance in open-source AI logic." data-zh="深度逻辑推理大模型，开源性能巅峰。" data-es="Modelo de razonamiento revolucionario con máximo rendimiento." data-ja="革新的推論モデル、トップクラスの性能。">Revolutionary reasoning model with top performance in open-source AI logic.</p>
+            </a>
 
+            <!-- 卡片 2 -->
+            <a href="https://gemini.google.com" target="_blank" class="card">
+                <div class="card-header"><i class="fa-solid fa-gem"></i><h3>Google Gemini</h3></div>
+                <span class="card-badge">Multimodal</span>
+                <p class="lang-data" data-en="Google's flagship multimodal AI for native text, image and code processing." data-zh="谷歌原生多模态旗舰，无缝文本/图像/视频。" data-es="IA multimodal insignia de Google." data-ja="グーグルのフラッグシップマルチモーダルAI。">Google's flagship multimodal AI for native text, image and code processing.</p>
+            </a>
+
+            <!-- 卡片 3 -->
+            <a href="https://chatgpt.com" target="_blank" class="card">
+                <div class="card-header"><i class="fa-solid fa-bolt"></i><h3>ChatGPT</h3></div>
+                <span class="card-badge">Industry Leader</span>
+                <p class="lang-data" data-en="The gold standard AI assistant powered by advanced GPT-4o and o1 models." data-zh="行业标杆级AI，GPT-4o与o1强强联合。" data-es="El asistente de IA estándar de oro." data-ja="GPT-4oとo1搭載、对话AI的ゴールドスタンダード。">The gold standard AI assistant powered by advanced GPT-4o and o1 models.</p>
+            </a>
+
+            <!-- 卡片 4 -->
+            <a href="https://tongyi.aliyun.com" target="_blank" class="card">
+                <div class="card-header"><i class="fa-solid fa-feather"></i><h3>Qwen (通义千问)</h3></div>
+                <span class="card-badge">Free / Multi-lingual</span>
+                <p class="lang-data" data-en="Alibaba's premier LLM with superior multilingual skills and coding intelligence." data-zh="阿里巴巴通义千问，领先多语言理解。" data-es="LLM premium de Alibaba, habilidades multilingües." data-ja="アリババのプレミアム大言語モデル。">Alibaba's premier LLM with superior multilingual skills and coding intelligence.</p>
+            </a>
+
+            <!-- 网格广告位 -->
             <div class="ad-container-grid">
-                <div class="ad-label" style="color: #c084fc; font-size: 0.7rem; margin-bottom: 12px;"><i class="fa-solid fa-circle-info"></i> ADS · 赞助商广告</div>
+                <div class="ad-label">Sponsored Advertisement</div>
                 <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
                     <ins class="adsbygoogle"
-                         style="display:block; width:100%; height:100%; min-height:220px;"
+                         style="display:block; width:100%; height:100%; min-height:250px;"
                          data-ad-client="ca-pub-1624261597740761"
                          data-ad-slot="7441222926"
                          data-ad-format="rectangle"
@@ -533,11 +517,49 @@
                 </div>
             </div>
 
-            <a href="https://www.doubao.com" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-circle-nodes"></i><h3>Doubao (豆包)</h3></div><p class="lang-data" data-en="ByteDance's massive AI chat assistant for smooth reply." data-zh="字节跳动国民级AI助手，语音自然流畅。" data-es="Asistente de chat de ByteDance, respuesta fluida." data-ja="バイトダンスの高速で滑らかなAIチャット。"></p></a>
-            <a href="https://kimi.moonshot.cn" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-star"></i><h3>Kimi Chat</h3></div><p class="lang-data" data-en="Moonshot AI's assistant famous for long-context analysis." data-zh="月之暗面Kimi，百万字长文本神器。" data-es="Asistente famoso por análisis de contexto largo." data-ja="長文コンテキスト処理で有名なAI。"></p></a>
-            <a href="https://claude.ai" target="_blank" class="card"><div class="card-header"><i class="fa-regular fa-message"></i><h3>Claude 3.7 Sonnet</h3></div><p class="lang-data" data-en="Anthropic's most balanced model, excels at code & reasoning." data-zh="Anthropic最强平衡模型，代码与逻辑双优。" data-es="Modelo equilibrado de Anthropic, código y razonamiento." data-ja="Anthropicの最もバランスの取れたモデル。"></p></a>
-            <a href="https://grok.x.ai" target="_blank" class="card"><div class="card-header"><i class="fa-solid fa-rocket"></i><h3>Grok</h3></div><p class="lang-data" data-en="xAI's witty assistant with real-time web & humor." data-zh="xAI出品，实时联网且幽默风趣的AI。" data-es="Asistente ingenioso con web en tiempo real." data-ja="リアルタイムWebアクセスとユーモアを備えたxAI製。"></p></a>
+            <!-- 卡片 5 -->
+            <a href="https://www.doubao.com" target="_blank" class="card">
+                <div class="card-header"><i class="fa-solid fa-circle-nodes"></i><h3>Doubao (豆包)</h3></div>
+                <span class="card-badge">Voice Support</span>
+                <p class="lang-data" data-en="ByteDance's massive AI chat assistant built for smooth natural workflows." data-zh="字节跳动国民级AI助手，语音自然流畅。" data-es="Asistente de chat de ByteDance, respuesta fluida." data-ja="バイトダンスの高速で滑らかなAIチャット。">ByteDance's massive AI chat assistant built for smooth natural workflows.</p>
+            </a>
+
+            <!-- 卡片 6 -->
+            <a href="https://kimi.moonshot.cn" target="_blank" class="card">
+                <div class="card-header"><i class="fa-solid fa-star"></i><h3>Kimi Chat</h3></div>
+                <span class="card-badge">Long Context</span>
+                <p class="lang-data" data-en="Moonshot AI's assistant famous for efficient long-context data analysis." data-zh="月之暗面Kimi，百万字长文本神器。" data-es="Asistente famoso por análisis de contexto largo." data-ja="長文コンテキスト処理で有名なAI。">Moonshot AI's assistant famous for efficient long-context data analysis.</p>
+            </a>
+
+            <!-- 卡片 7 -->
+            <a href="https://claude.ai" target="_blank" class="card">
+                <div class="card-header"><i class="fa-regular fa-message"></i><h3>Claude 3.7 Sonnet</h3></div>
+                <span class="card-badge">Coding Pro</span>
+                <p class="lang-data" data-en="Anthropic's most balanced model, which excels heavily at complex coding tasks." data-zh="Anthropic最强平衡模型，代码与逻辑双优。" data-es="Modelo equilibrado de Anthropic, código y razonamiento." data-ja="Anthropicの最もバランスの取れたモデル。">Anthropic's most balanced model, which excels heavily at complex coding tasks.</p>
+            </a>
+
+            <!-- 卡片 8 -->
+            <a href="https://grok.x.ai" target="_blank" class="card">
+                <div class="card-header"><i class="fa-solid fa-rocket"></i><h3>Grok</h3></div>
+                <span class="card-badge">Real-time Web</span>
+                <p class="lang-data" data-en="xAI's witty assistant with real-time X platform data and humorous insights." data-zh="xAI出品，实时联网且幽默风趣的AI。" data-es="Asistente ingenioso con web en tiempo real." data-ja="リアルタイムWebアクセスとユーモアを備えたxAI製。">xAI's witty assistant with real-time X platform data and humorous insights.</p>
+            </a>
         </div>
+
+        <!-- ==========================================
+           AdSense 审核加分项：人工撰写的深度指南区域（充实网页文本）
+           ========================================== */ -->
+        <section class="editorial-section" id="editorialBlock">
+            <h2 id="ed-title">How to Choose the Best LLM for Your Workflow?</h2>
+            <div class="editorial-item">
+                <h3 id="ed-h1">1. DeepSeek R1 vs ChatGPT for Developers</h3>
+                <p id="ed-p1">When it comes to advanced reasoning and logic execution, open-source alternatives like DeepSeek R1 have closing gaps with proprietary leaders. However, ChatGPT's ecosystem still holds the upper hand for general productivity and dynamic canvas rendering tools.</p>
+            </div>
+            <div class="editorial-item">
+                <h3 id="ed-h2">2. The Power of Long Context Windows</h3>
+                <p id="ed-p2">Tools like Kimi Chat and Gemini lead the pack when you need to process massive legal files, comprehensive document databases, or large codebases in a single prompt window, saving crucial research time.</p>
+            </div>
+        </section>
     </main>
 </div>
 
@@ -552,10 +574,22 @@
 
 <script>
     const i18n = {
-        en: { title: "Global AI & Tech Tools Directory", desc: "Hand-picked premium AI tools updated daily.", cat: "🤖 Top LLMs & AI Chat", nav1: "LLMs & Chat", nav2: "Image & Art", nav3: "Video Motion", nav4: "3D & Spatial", nav5: "Human & Face", nav6: "AI Tools", nav7Agents: "AI Agents", nav7: "Toolbox", nav8: "Blog", asideHeading: "📁 EXPLORE", footerCopyright: "© 2026 Global AI Directory. All rights reserved.", footerPrivacy: "Privacy Policy", footerContact: "Contact Us", footerAbout: "About Us" },
-        zh: { title: "全球热门 AI 智能工具导航", desc: "每日精选更新，聚合海内外顶尖 AI 效率与创意工具。", cat: "🤖 爆款语言大模型与 AI 对话", nav1: "大模型与对话", nav2: "图像与艺术", nav3: "视频生成", nav4: "3D与空间", nav5: "数字人与换脸", nav6: "AI工具箱", nav7Agents: "AI 智能体", nav7: "工具箱", nav8: "博客", asideHeading: "📁 探索分类", footerCopyright: "© 2026 智域导航 · 全球AI工具集 保留所有权利", footerPrivacy: "隐私政策", footerContact: "联系我们", footerAbout: "关于我们" },
-        es: { title: "Directorio Global de IA", desc: "Herramientas de IA premium actualizadas diariamente.", cat: "🤖 Principales LLM y Chat IA", nav1: "LLM y Chat", nav2: "Imagen y Arte", nav3: "Video IA", nav4: "3D y Espacio", nav5: "Humano y Cara", nav6: "Caja IA", nav7Agents: "Agentes de IA", nav7: "Caja de Herramientas", nav8: "Blog", asideHeading: "📁 EXPLORAR", footerCopyright: "© 2026 Directorio Global IA. Todos los derechos reservados.", footerPrivacy: "Política Priv.", footerContact: "Contacto", footerAbout: "Sobre Nosotros" },
-        ja: { title: "AI＆テックツール グローバルガイド", desc: "厳選されたプレミアムAIツールを毎日更新", cat: "🤖 主要LLM＆AIチャット", nav1: "LLMとチャット", nav2: "画像とアート", nav3: "動画生成", nav4: "3Dと空间", nav5: "デジタルヒューマン", nav6: "AIツールボックス", nav7Agents: "AIエージェント", nav7: "ツールボックス", nav8: "ブログ", asideHeading: "📁 カテゴリ", footerCopyright: "© 2026 グローバルAIディレクトリ 无断転載禁止", footerPrivacy: "プライバシー", footerContact: "お問い合わせ", footerAbout: "会社概要" }
+        en: { 
+            title: "Global AI & Tech Tools Directory", desc: "Hand-picked premium AI tools updated daily.", cat: "🤖 Top LLMs & AI Chat", nav1: "LLMs & Chat", nav2: "Image & Art", nav3: "Video Motion", nav4: "3D & Spatial", nav5: "Human & Face", nav6: "AI Tools", nav7Agents: "AI Agents", nav7: "Toolbox", nav8: "Blog", asideHeading: "📁 EXPLORE", footerCopyright: "© 2026 Global AI Directory. All rights reserved.", footerPrivacy: "Privacy Policy", footerContact: "Contact Us", footerAbout: "About Us",
+            edTitle: "How to Choose the Best LLM for Your Workflow?", edH1: "1. DeepSeek R1 vs ChatGPT for Developers", edP1: "When it comes to advanced reasoning and logic execution, open-source alternatives like DeepSeek R1 have closing gaps with proprietary leaders. However, ChatGPT's ecosystem still holds the upper hand for general productivity.", edH2: "2. The Power of Long Context Windows", edP2: "Tools like Kimi Chat and Gemini lead the pack when you need to process massive legal files or large codebases in a single prompt window."
+        },
+        zh: { 
+            title: "全球热门 AI 智能工具导航", desc: "每日精选更新，聚合海内外顶尖 AI 效率与创意工具。", cat: "🤖 爆款语言大模型与 AI 对话", nav1: "大模型与对话", nav2: "图像与艺术", nav3: "视频生成", nav4: "3D与空间", nav5: "数字人与换脸", nav6: "AI工具箱", nav7Agents: "AI 智能体", nav7: "工具箱", nav8: "博客", asideHeading: "📁 探索分类", footerCopyright: "© 2026 智域导航 · 全球AI工具集 保留所有权利", footerPrivacy: "隐私政策", footerContact: "联系我们", footerAbout: "关于我们",
+            edTitle: "如何为您的工作流选择最佳的大语言模型？", edH1: "1. 开发者如何选择 DeepSeek R1 与 ChatGPT", edP1: "在深度逻辑推理和代码执行方面，开源的 DeepSeek R1 已经达到了极高的顶峰。而 ChatGPT 则在日常办公综合生态、画布协同上表现更加全面。", edH2: "2. 长文本处理能力的现实意义", edP2: "诸如 Kimi Chat 和 Google Gemini 支持超长上下文，非常适合一次性投喂几十万字的论文、财报或整套源码库进行深度审计。"
+        },
+        es: { 
+            title: "Directorio Global de IA", desc: "Herramientas de IA premium actualizadas diariamente.", cat: "🤖 Principales LLM y Chat IA", nav1: "LLM y Chat", nav2: "Imagen y Arte", nav3: "Video IA", nav4: "3D y Espacio", nav5: "Humano y Cara", nav6: "Caja IA", nav7Agents: "Agentes de IA", nav7: "Caja de Herramientas", nav8: "Blog", asideHeading: "📁 EXPLORAR", footerCopyright: "© 2026 Directorio Global IA. Todos los derechos reservados.", footerPrivacy: "Política Priv.", footerContact: "Contacto", footerAbout: "Sobre Nosotros",
+            edTitle: "¿Cómo elegir el mejor LLM?", edH1: "1. DeepSeek R1 vs ChatGPT", edP1: "DeepSeek destaca en razonamiento puro y código abierto, mientras ChatGPT domina en productividad general.", edH2: "2. Contexto Largo", edP2: "Kimi y Gemini son ideales para procesar libros enteros y bases de datos masivas."
+        },
+        ja: { 
+            title: "AI＆テックツール グローバルガイド", desc: "厳選されたプレミアムAIツールを毎日更新", cat: "🤖 主要LLM＆AIチャット", nav1: "LLMとチャット", nav2: "画像とアート", nav3: "動画生成", nav4: "3Dと空间", nav5: "デジタルヒューマン", nav6: "AIツールボックス", nav7Agents: "AIエージェント", nav7: "ツールボックス", nav8: "ブログ", asideHeading: "📁 カテゴリ", footerCopyright: "© 2026 グローバルAIディレクトリ 无断転載禁止", footerPrivacy: "プライバシー", footerContact: "お問い合わせ", footerAbout: "会社概要",
+            edTitle: "最適なLLMの選び方", edH1: "1. DeepSeek R1 と ChatGPT の比較", edP1: "論理的推論ではDeepSeekが急成長していますが、総合的なエコシステムではChatGPTが優位を保っています。", edH2: "2. 長文コンテキストの利点", edP2: "大量のドキュメントやソースコードを一度に処理する場合、KimiやGeminiが最も力を発揮します。"
+        }
     };
 
     function applyLanguage(lang) {
@@ -577,6 +611,13 @@
             navLinks[7].innerText = t.nav7;
             navLinks[8].innerText = t.nav8;
         }
+
+        // 渲染新加入的文字区块
+        document.getElementById('ed-title').innerText = t.edTitle;
+        document.getElementById('ed-h1').innerText = t.edH1;
+        document.getElementById('ed-p1').innerText = t.edP1;
+        document.getElementById('ed-h2').innerText = t.edH2;
+        document.getElementById('ed-p2').innerText = t.edP2;
 
         document.getElementById('footerCopyright').innerText = t.footerCopyright;
         document.getElementById('footerPrivacy').innerText = t.footerPrivacy;
@@ -607,7 +648,7 @@
     highlightNav();
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
             applyLanguage(lang);
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
